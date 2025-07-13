@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import morgan from "morgan";
 import ndviRoute from "./src/routes/ndvi.js";
+import locationRoute from "./src/routes/location.js";
 import admin from "firebase-admin";
 import fs from "fs";
 
@@ -21,6 +22,7 @@ app.use(morgan("dev"));
 app.use(express.json());
 
 app.use("/api/ndvi", ndviRoute);
+app.use("/api/location", locationRoute);
 
 app.listen(PORT, () => {
   console.log(`✅ NDVI API running at http://localhost:${PORT}`);
